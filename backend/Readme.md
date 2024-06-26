@@ -33,7 +33,7 @@ yarn start
 ```
 
 Script:
-```bash
+```json
 "start": "ts-node-dev --respawn --transpile-only --exit-child src/server.ts",
 ```
 
@@ -73,6 +73,19 @@ Script:
 "db:push": "npx prisma db push"
 ```
 
+# Testes
+O comando a seguir irá realizar todos testes unitários e de integração contidos no diretório `_tests_`.
+
+Comando:
+``` bash
+yarn test
+```
+
+Script:
+```json
+"test": "jest",
+```
+
 # Gerar documentação
 O script docs gera a documentação do backend utilizando o typedoc. Todos os comentários no diretório `/src/*.ts` são processados e a documentação em HTML é gerada no diretório `/docs`:
 
@@ -82,6 +95,6 @@ yarn docs
 ```
 
 Script:
-```bash
+```json
 "docs": "typedoc"
 ```
