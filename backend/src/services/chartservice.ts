@@ -5,10 +5,22 @@
  * @returns Um objeto onde as chaves são os tipos e os valores são as somas dos valores correspondentes.
  */
 export const organizePieChartData = (data: any[]) => {
-    const result = data.reduce((acc, item) => {
-        acc[item.type] = (acc[item.type] || 0) + item.value;
-        return acc;
-    }, {});
+    const result: { type: string, value: number }[] = [];
+    
+    // Usando um mapa para acumular os valores por tipo
+    const valueMap = new Map<string, number>();
+    
+    // Iterar sobre os dados para acumular os valores por tipo
+    data.forEach(item => {
+        const currentValue = valueMap.get(item.type) || 0;
+        valueMap.set(item.type, currentValue + item.value);
+    });
+    
+    // Construir o array no formato desejado
+    valueMap.forEach((value, type) => {
+        result.push({ type, value });
+    });
+    
     return result;
 };
 

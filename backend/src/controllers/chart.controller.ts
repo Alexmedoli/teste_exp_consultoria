@@ -4,7 +4,11 @@ import { prisma } from "../server";
 import { isError } from "util";
 
 
-// Função para criar inserir dados no banco de dados
+/**
+ * Função para inserir dados no banco de dados.
+ * @param req - Objeto da requisição do Express.
+ * @param res - Objeto da resposta do Express.
+ */
 export const createData = async (req: Request, res: Response) => {
     try {
         const { type, value, date } = req.body;
@@ -31,7 +35,11 @@ export const createData = async (req: Request, res: Response) => {
     }
 };
 
-// Função para obter charts por tipo e filtrados por data
+/**
+ * Função para obter charts por tipo e filtrados por data.
+ * @param req - Objeto da requisição do Express.
+ * @param res - Objeto da resposta do Express.
+ */
 export const getChart = async (req: Request, res: Response) => {
     try {
         const { chartType } = req.params;
@@ -72,7 +80,11 @@ export const getChart = async (req: Request, res: Response) => {
     }
 };
 
-// Função para atualizar um chart existente
+/**
+ * Função para atualizar um chart existente.
+ * @param req - Objeto da requisição do Express.
+ * @param res - Objeto da resposta do Express.
+ */
 export const updateChart = async (req: Request, res: Response) => {
     try {
         const { id, type, value, startDate, endDate } = req.body;
@@ -93,7 +105,11 @@ export const updateChart = async (req: Request, res: Response) => {
     }
 };
 
-// Função para deletar um chart
+/**
+ * Função para deletar um dado no banco.
+ * @param req - Objeto da requisição do Express.
+ * @param res - Objeto da resposta do Express.
+ */
 export const deleteChart = async (req: Request, res: Response) => {
     try {
         const { id } = req.body;

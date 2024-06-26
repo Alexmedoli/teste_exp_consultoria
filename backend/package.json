@@ -6,7 +6,8 @@
   "scripts": {
     "start": "ts-node-dev --respawn --transpile-only --exit-child src/server.ts",
     "db:migrate": "npx prisma migrate dev --name user-entity --create-only && prisma generate",
-    "db:push": "npx prisma db push"
+    "db:push": "npx prisma db push",
+    "docs": "typedoc"
   },
   "compilerOptions": {
     "target": "es5",
@@ -23,6 +24,7 @@
     "@types/swagger-ui-express": "^4.1.6",
     "prisma": "^5.15.1",
     "ts-node-dev": "^2.0.0",
+    "typedoc": "^0.26.2",
     "typescript": "^5.5.2"
   },
   "dependencies": {
