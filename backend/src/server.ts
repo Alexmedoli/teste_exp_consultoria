@@ -13,13 +13,13 @@ const port = 8080;
 async function main() {
   app.use(express.json());
 
-  app.use(cors());
+  app.use(cors({
+    origin: '*', // Permitir todas as origens durante o desenvolvimento
+    methods: ['GET', 'POST'], // Permitir apenas métodos GET e POST
+    allowedHeaders: ['Content-Type', 'Authorization'], // Cabeçalhos permitidos
+  }));
   
   swaggerDocs(app, port);
-
-
-  // Middleware para servir a documentação Swagger UI
-  //app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
   // Registro de todas as rotas de API
   app.use('/api/v1/chart', PostRouter);
