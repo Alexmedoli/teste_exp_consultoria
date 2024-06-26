@@ -1,9 +1,8 @@
 import express, { Request, Response } from 'express';
-import swaggerUi from 'swagger-ui-express';
-import swaggerSpec from '../config/swagger/swagger.config'; 
 import { PrismaClient } from '@prisma/client';
 import PostRouter from './routes/chart.route';
 import swaggerDocs from '../config/swagger/swagger.config';
+import cors from 'cors'; 
 
 export const prisma = new PrismaClient();
 const app = express();
@@ -13,6 +12,8 @@ const port = 8080;
 
 async function main() {
   app.use(express.json());
+
+  app.use(cors());
   
   swaggerDocs(app, port);
 
