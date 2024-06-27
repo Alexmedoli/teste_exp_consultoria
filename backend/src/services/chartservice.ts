@@ -32,6 +32,7 @@ export const organizePieChartData = (data: any[]) => {
  */
 export const organizeLineChartData = (data: any[]) => {
     return data.sort((a, b) => a.date - b.date).map(item => ({
+        type: item.type,
         date: item.date,
         value: item.value,
     }));
